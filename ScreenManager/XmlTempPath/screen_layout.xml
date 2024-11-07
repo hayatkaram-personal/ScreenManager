@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <!-- This is the XML file for the theme layout for the Side Chrome theme. -->
+ <!-- Version Date: 6/28/2024 -->
+ <!-- Edited Last By: Thomas H. -->
+ <!-- This version of Chrome has Ball Count, Game Number, Prize Money, and Pattern Name Stacked -->
+
+<vfb_screen>
+ <!-- Theme information -->
+	<element name="vfb_screen">
+		<setting name="name">Chrome-SingleScreen</setting>
+		<setting name="abbr">chrome_ssn</setting>
+		<setting name="description">This is Chrome Single Screen theme.</setting>
+		<setting name="version">3.5</setting>
+		<setting name="mode">SingleScreen</setting>
+		<setting name="theme">Chrome</setting>
+		<setting name="resolution">1920x1080</setting>
+		<setting name="background">page_background</setting>
+		<setting name="fb_enabled">true</setting>
+		<setting name="pattern_enabled">true</setting>
+		<setting name="giant_pattern_enabled">true</setting>
+		<setting name="patternname_enabled">true</setting>
+		<setting name="prize_enabled">true</setting>
+		<setting name="lastball_enabled">true</setting>
+		<setting name="ballcount_enabled">true</setting>
+		<setting name="gamenumber_enabled">true</setting>
+		<setting name="media_enabled">true</setting>
+		<setting name="ballcam_enabled">false</setting>
+		<setting name="verify_enabled">true</setting>
+		<setting name="ads_enabled">false</setting>
+	</element>
+
+
+ <!-- 75 Ball Flash Board Elements -->
+	<element name="fb_panel_75">
+		<setting name="background">fb_background</setting>
+		<setting name="width">1910</setting>
+		<setting name="height">700</setting>
+		<setting name="marginLeft">15</setting>
+		<setting name="marginTop">-25</setting>
+		<setting name="rows_75">1-5</setting>
+		<setting name="rows_90">1-6</setting>
+		<setting name="columns">1-15</setting>
+		<setting name="biglastball">true</setting>
+		<setting name="biglastballsecs">2</setting>
+		<setting name="flashing_last_ball">false</setting>
+	</element>
+
+	<element name="fb_numbers_75">
+		<setting name="width">102</setting>
+		<setting name="height">102</setting>
+		<setting name="x_start">220</setting>
+		<setting name="y_start">75</setting>
+		<setting name="x_inc">107</setting>
+		<setting name="y_inc">109</setting>
+	</element>
+
+	<element name="fb_rowheader_1_75">
+		<setting name="background">fb_rowimage_1</setting>
+		<setting name="width">110</setting>
+		<setting name="height">96</setting>
+		<setting name="marginLeft">93</setting>
+		<setting name="marginTop">77</setting>
+	</element>
+
+	<element name="fb_rowheader_2_75">
+		<setting name="background">fb_rowimage_2</setting>
+		<setting name="width">110</setting>
+		<setting name="height">96</setting>
+		<setting name="marginLeft">91</setting>
+		<setting name="marginTop">187</setting>
+	</element>
+
+	<element name="fb_rowheader_3_75">
+		<setting name="background">fb_rowimage_3</setting>
+		<setting name="width">105</setting>
+		<setting name="height">96</setting>
+		<setting name="marginLeft">95</setting>
+		<setting name="marginTop">293</setting>
+	</element>
+
+	<element name="fb_rowheader_4_75">
+		<setting name="background">fb_rowimage_4</setting>
+		<setting name="width">115</setting>
+		<setting name="height">95</setting>
+		<setting name="marginLeft">92</setting>
+		<setting name="marginTop">408</setting>
+	</element>
+
+	<element name="fb_rowheader_5_75">
+		<setting name="background">fb_rowimage_5</setting>
+		<setting name="width">120</setting>
+		<setting name="height">96</setting>
+		<setting name="marginLeft">90</setting>
+		<setting name="marginTop">509</setting>
+	</element>
+
+
+ <!-- 90 Ball Flash Board Elements -->
+	<element name="fb_panel_90">
+		<setting name="background">fb_background</setting>
+		<setting name="width">1885</setting>
+		<setting name="height">690</setting>
+		<setting name="marginLeft">20</setting>
+		<setting name="marginTop">-25</setting>
+		<setting name="rows_75">1-5</setting>
+		<setting name="rows_90">1-6</setting>
+		<setting name="columns">1-15</setting>
+		<setting name="biglastball">false</setting>
+		<setting name="biglastballsecs">2</setting>
+		<setting name="flashing_last_ball">false</setting>
+	</element>
+
+	<element name="fb_numbers_90">
+		<setting name="width">90</setting>
+		<setting name="height">90</setting>
+		<setting name="x_start">350</setting>
+		<setting name="y_start">70</setting>
+		<setting name="x_inc">95</setting>
+		<setting name="y_inc">92</setting>
+	</element>
+
+	<element name="fb_rowheader_1_90">
+		<setting name="background">fb_90_rowimage_1</setting>
+		<setting name="width">162</setting>
+		<setting name="height">90</setting>
+		<setting name="marginLeft">130</setting>
+		<setting name="marginTop">70</setting>
+	</element>
+
+	<element name="fb_rowheader_2_90">
+		<setting name="background">fb_90_rowimage_2</setting>
+		<setting name="width">162</setting>
+		<setting name="height">90</setting>
+		<setting name="marginLeft">130</setting>
+		<setting name="marginTop">162</setting>
+	</element>
+
+	<element name="fb_rowheader_3_90">
+		<setting name="background">fb_90_rowimage_3</setting>
+		<setting name="width">162</setting>
+		<setting name="height">90</setting>
+		<setting name="marginLeft">130</setting>
+		<setting name="marginTop">254</setting>
+	</element>
+
+	<element name="fb_rowheader_4_90">
+		<setting name="background">fb_90_rowimage_4</setting>
+		<setting name="width">162</setting>
+		<setting name="height">90</setting>
+		<setting name="marginLeft">130</setting>
+		<setting name="marginTop">346</setting>
+	</element>
+
+	<element name="fb_rowheader_5_90">
+		<setting name="background">fb_90_rowimage_5</setting>
+		<setting name="width">162</setting>
+		<setting name="height">90</setting>
+		<setting name="marginLeft">130</setting>
+		<setting name="marginTop">438</setting>
+	</element>
+
+	<element name="fb_rowheader_6_90">
+		<setting name="background">fb_90_rowimage_6</setting>
+		<setting name="width">162</setting>
+		<setting name="height">90</setting>
+		<setting name="marginLeft">130</setting>
+		<setting name="marginTop">530</setting>
+	</element>
+
+
+ <!-- Ball Elements -->
+	<element name="lastball_panel">
+		<setting name="background">null</setting>
+		<setting name="width">375</setting>
+		<setting name="height">375</setting>
+		<setting name="marginLeft">110</setting>
+		<setting name="marginTop">615</setting>
+	</element>
+
+	<element name="lastball_image">
+		<setting name="background">null</setting>
+		<setting name="width">300</setting>
+		<setting name="height">300</setting>
+		<setting name="marginLeft">-10</setting>
+		<setting name="marginTop">10</setting>
+	</element>
+
+	<element name="lastball_hotball_overlay">
+		<setting name="background">hotball_called_overlay</setting>
+		<setting name="width">268</setting>
+		<setting name="height">268</setting>
+		<setting name="marginLeft">5</setting>
+		<setting name="marginTop">25</setting>
+	</element>
+
+	<element name="ballcount_text">
+		<setting name="background">ballcount_background</setting>
+		<setting name="parent">screen</setting>
+		<setting name="textSize">25</setting>
+		<setting name="textColor">#FFFFFF</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textPadding">0,35,0,0</setting>
+		<setting name="textFont">Harry_Sqz.otf</setting>
+		<setting name="textPrefix">Ball Count:  </setting>
+		<setting name="useUppercase">false</setting>
+		<setting name="width">300</setting>
+		<setting name="height">95</setting>
+		<setting name="marginLeft">100</setting>
+		<setting name="marginTop">900</setting>
+	</element>
+
+
+ <!-- Ball Animation -->
+	<element name="Animation1">
+		<setting name="Name">BigLastBall</setting>
+		<setting name="AnimationType">PathAnimation</setting>
+		<setting name="AnimationHolder">PageBackground</setting>
+		<setting name="AnimationTrigger">BallCall</setting>
+		<setting name="TriggerParameters">1-90</setting>
+		<setting name="NextAnimation">ShowLastBall</setting>
+		<setting name="AnimationSeq">2</setting>
+		<setting name="UpdateInterval">0.01</setting>
+		<setting name="ImageType">CalledBall</setting>
+		<setting name="ImageFileName"></setting>
+		<setting name="Frame1">10,10,955,295,0</setting>
+		<setting name="Frame2">70,70,925,267,0</setting>
+		<setting name="Frame3">130,130,895,239,0</setting>
+		<setting name="Frame4">190,190,865,211,0</setting>
+		<setting name="Frame5">250,250,835,183,0</setting>
+		<setting name="Frame6">310,310,805,155,0</setting>
+		<setting name="Frame7">370,370,775,127,0</setting>
+		<setting name="Frame8">430,430,745,99,0</setting>
+		<setting name="Frame9">490,490,715,71,0</setting>
+		<setting name="Frame10">550,550,685,43,0</setting>
+		<setting name="Frame11">610,610,655,15,0</setting>
+		<setting name="Frame12">610,610,655,15,0</setting>
+		<setting name="Frame13">610,610,655,15,0</setting>
+		<setting name="Frame14">610,610,655,15,0</setting>
+		<setting name="Frame15">610,610,655,15,0</setting>
+		<setting name="Frame16">610,610,655,15,0</setting>
+		<setting name="Frame17">610,610,655,15,0</setting>
+		<setting name="Frame18">610,610,655,15,0</setting>
+		<setting name="Frame19">610,610,655,15,0</setting>
+		<setting name="Frame20">610,610,655,15,0</setting>
+		<setting name="Frame21">610,610,655,15,0</setting>
+		<setting name="Frame22">610,610,655,15,0</setting>
+		<setting name="Frame23">610,610,655,15,0</setting>
+		<setting name="Frame24">610,610,655,15,0</setting>
+		<setting name="Frame25">610,610,655,15,0</setting>
+		<setting name="Frame26">610,610,655,15,0</setting>
+		<setting name="Frame27">610,610,655,15,0</setting>
+		<setting name="Frame28">610,610,655,15,0</setting>
+		<setting name="Frame29">610,610,655,15,0</setting>
+		<setting name="Frame30">610,610,655,15,0</setting>
+		<setting name="Frame31">610,610,655,15,0</setting>
+		<setting name="Frame32">610,610,655,15,0</setting>
+		<setting name="Frame33">610,610,655,15,0</setting>
+		<setting name="Frame34">610,610,655,15,0</setting>
+		<setting name="Frame35">610,610,655,15,0</setting>
+		<setting name="Frame36">610,610,655,15,0</setting>
+		<setting name="Frame37">610,610,655,15,0</setting>
+		<setting name="Frame38">610,610,655,15,0</setting>
+		<setting name="Frame39">610,610,655,15,0</setting>
+		<setting name="Frame40">610,610,655,15,0</setting>
+		<setting name="Frame41">610,610,655,15,0</setting>
+		<setting name="Frame42">610,610,655,15,0</setting>
+		<setting name="Frame43">610,610,655,15,0</setting>
+		<setting name="Frame44">610,610,655,15,0</setting>
+		<setting name="Frame45">610,610,655,15,0</setting>
+		<setting name="Frame46">610,610,655,15,0</setting>
+		<setting name="Frame47">610,610,655,15,0</setting>
+		<setting name="Frame48">610,610,655,15,0</setting>
+		<setting name="Frame49">610,610,655,15,0</setting>
+		<setting name="Frame50">610,610,655,15,0</setting>
+		<setting name="Frame51">610,610,655,15,0</setting>
+		<setting name="Frame52">610,610,655,15,0</setting>
+		<setting name="Frame53">610,610,655,15,0</setting>
+		<setting name="Frame54">610,610,655,15,0</setting>
+		<setting name="Frame55">610,610,655,15,0</setting>
+		<setting name="Frame56">610,610,655,15,0</setting>
+		<setting name="Frame57">610,610,655,15,0</setting>
+		<setting name="Frame58">610,610,655,15,0</setting>
+		<setting name="Frame59">610,610,655,15,0</setting>
+		<setting name="Frame60">610,610,655,15,0</setting>
+		<setting name="Frame61">610,610,655,15,0</setting>
+		<setting name="Frame62">610,610,655,15,0</setting>
+		<setting name="Frame63">610,610,655,15,0</setting>
+		<setting name="Frame64">610,610,655,15,0</setting>
+		<setting name="Frame65">610,610,655,15,0</setting>
+		<setting name="Frame66">610,610,655,15,0</setting>
+		<setting name="Frame67">610,610,655,15,0</setting>
+		<setting name="Frame68">610,610,655,15,0</setting>
+		<setting name="Frame69">610,610,655,15,0</setting>
+		<setting name="Frame70">610,610,655,15,0</setting>
+		<setting name="Frame71">610,610,655,15,0</setting>
+		<setting name="Frame72">610,610,655,15,0</setting>
+		<setting name="Frame73">610,610,655,15,0</setting>
+		<setting name="Frame74">610,610,655,15,0</setting>
+		<setting name="Frame75">610,610,655,15,0</setting>
+		<setting name="Frame76">610,610,655,15,0</setting>
+		<setting name="Frame77">610,610,655,15,0</setting>
+		<setting name="Frame78">610,610,655,15,0</setting>
+		<setting name="Frame79">610,610,655,15,0</setting>
+		<setting name="Frame80">610,610,655,15,0</setting>
+		<setting name="Frame81">610,610,655,15,0</setting>
+		<setting name="Frame82">610,610,655,15,0</setting>
+		<setting name="Frame83">610,610,655,15,0</setting>
+		<setting name="Frame84">610,610,655,15,0</setting>
+		<setting name="Frame85">610,610,655,15,0</setting>
+		<setting name="Frame86">610,610,655,15,0</setting>
+		<setting name="Frame87">610,610,655,15,0</setting>
+		<setting name="Frame88">610,610,655,15,0</setting>
+		<setting name="Frame89">610,610,655,15,0</setting>
+		<setting name="Frame90">610,610,655,15,0</setting>
+		<setting name="Frame91">610,610,655,15,0</setting>
+		<setting name="Frame92">610,610,655,15,0</setting>
+		<setting name="Frame93">610,610,655,15,0</setting>
+		<setting name="Frame94">610,610,655,15,0</setting>
+		<setting name="Frame95">610,610,655,15,0</setting>
+		<setting name="Frame96">610,610,655,15,0</setting>
+		<setting name="Frame97">610,610,655,15,0</setting>
+		<setting name="Frame98">610,610,655,15,0</setting>
+		<setting name="Frame99">610,610,655,15,0</setting>
+		<setting name="Frame100">610,610,655,15,0</setting>
+		<setting name="Frame101">610,610,655,15,0</setting>
+		<setting name="Frame102">610,610,655,15,0</setting>
+		<setting name="Frame103">610,610,655,15,0</setting>
+		<setting name="Frame104">610,610,655,15,0</setting>
+		<setting name="Frame105">610,610,655,15,0</setting>
+		<setting name="Frame106">610,610,655,15,0</setting>
+		<setting name="Frame107">610,610,655,15,0</setting>
+		<setting name="Frame108">610,610,655,15,0</setting>
+		<setting name="Frame109">610,610,655,15,0</setting>
+		<setting name="Frame110">610,610,655,15,0</setting>
+		<setting name="Frame111">610,610,655,15,0</setting>
+		<setting name="Frame112">610,610,655,15,0</setting>
+		<setting name="Frame113">610,610,655,15,0</setting>
+		<setting name="Frame114">610,610,655,15,0</setting>
+		<setting name="Frame115">610,610,655,15,0</setting>
+		<setting name="Frame116">610,610,655,15,0</setting>
+		<setting name="Frame117">610,610,655,15,0</setting>
+		<setting name="Frame118">610,610,655,15,0</setting>
+		<setting name="Frame119">610,610,655,15,0</setting>
+		<setting name="Frame120">610,610,655,15,0</setting>
+		<setting name="Frame121">610,610,655,15,0</setting>
+		<setting name="Frame122">610,610,655,15,0</setting>
+		<setting name="Frame123">610,610,655,15,0</setting>
+		<setting name="Frame124">610,610,655,15,0</setting>
+		<setting name="Frame125">610,610,655,15,0</setting>
+		<setting name="Frame126">610,610,655,15,0</setting>
+		<setting name="Frame127">610,610,655,15,0</setting>
+		<setting name="Frame128">610,610,655,15,0</setting>
+		<setting name="Frame129">610,610,655,15,0</setting>
+		<setting name="Frame130">610,610,655,15,0</setting>
+		<setting name="Frame131">610,610,655,15,0</setting>
+		<setting name="Frame132">610,610,655,15,0</setting>
+		<setting name="Frame133">610,610,655,15,0</setting>
+		<setting name="Frame134">610,610,655,15,0</setting>
+		<setting name="Frame135">610,610,655,15,0</setting>
+		<setting name="Frame136">610,610,655,15,0</setting>
+		<setting name="Frame137">610,610,655,15,0</setting>
+		<setting name="Frame138">610,610,655,15,0</setting>
+		<setting name="Frame139">610,610,655,15,0</setting>
+		<setting name="Frame140">610,610,655,15,0</setting>
+		<setting name="Frame141">610,610,655,15,0</setting>
+		<setting name="Frame142">610,610,655,15,0</setting>
+		<setting name="Frame143">610,610,655,15,0</setting>
+		<setting name="Frame144">610,610,655,15,0</setting>
+		<setting name="Frame145">610,610,655,15,0</setting>
+		<setting name="Frame146">610,610,655,15,0</setting>
+		<setting name="Frame147">610,610,655,15,0</setting>
+		<setting name="Frame148">610,610,655,15,0</setting>
+		<setting name="Frame149">610,610,655,15,0</setting>
+		<setting name="Frame150">610,610,655,15,0</setting>
+		<setting name="Frame151">610,610,655,15,0</setting>
+		<setting name="Frame152">610,610,655,15,0</setting>
+		<setting name="Frame153">610,610,655,15,0</setting>
+		<setting name="Frame154">610,610,655,15,0</setting>
+		<setting name="Frame155">610,610,655,15,0</setting>
+		<setting name="Frame156">610,610,655,15,0</setting>
+		<setting name="Frame157">610,610,655,15,0</setting>
+		<setting name="Frame158">610,610,655,15,0</setting>
+		<setting name="Frame159">610,610,655,15,0</setting>
+		<setting name="Frame160">610,610,655,15,0</setting>
+		<setting name="Frame161">610,610,655,15,0</setting>
+		<setting name="Frame162">610,610,655,15,0</setting>
+		<setting name="Frame163">610,610,655,15,0</setting>
+		<setting name="Frame164">610,610,655,15,0</setting>
+		<setting name="Frame165">610,610,655,15,0</setting>
+		<setting name="Frame166">610,610,655,15,0</setting>
+		<setting name="Frame167">610,610,655,15,0</setting>
+		<setting name="Frame168">610,610,655,15,0</setting>
+		<setting name="Frame169">610,610,655,15,0</setting>
+		<setting name="Frame170">610,610,655,15,0</setting>
+		<setting name="Frame171">610,610,655,15,0</setting>
+		<setting name="Frame172">610,610,655,15,0</setting>
+		<setting name="Frame173">610,610,655,15,0</setting>
+		<setting name="Frame174">610,610,655,15,0</setting>
+		<setting name="Frame175">610,610,655,15,0</setting>
+		<setting name="Frame176">610,610,655,15,0</setting>
+		<setting name="Frame177">610,610,655,15,0</setting>
+		<setting name="Frame178">610,610,655,15,0</setting>
+		<setting name="Frame179">610,610,655,15,0</setting>
+		<setting name="Frame180">610,610,655,15,0</setting>
+		<setting name="Frame181">610,610,655,15,0</setting>
+		<setting name="Frame182">610,610,655,15,0</setting>
+		<setting name="Frame183">610,610,655,15,0</setting>
+		<setting name="Frame184">610,610,655,15,0</setting>
+		<setting name="Frame185">610,610,655,15,0</setting>
+		<setting name="Frame186">610,610,655,15,0</setting>
+		<setting name="Frame187">610,610,655,15,0</setting>
+		<setting name="Frame188">610,610,655,15,0</setting>
+		<setting name="Frame189">610,610,655,15,0</setting>
+		<setting name="Frame190">610,610,655,15,0</setting>
+		<setting name="Frame191">610,610,655,15,0</setting>
+		<setting name="Frame192">610,610,655,15,0</setting>
+		<setting name="Frame193">610,610,655,15,0</setting>
+		<setting name="Frame194">610,610,655,15,0</setting>
+		<setting name="Frame195">610,610,655,15,0</setting>
+		<setting name="Frame196">610,610,655,15,0</setting>
+		<setting name="Frame197">610,610,655,15,0</setting>
+		<setting name="Frame198">580,580,670,34,0</setting>
+		<setting name="Frame199">550,550,685,53,0</setting>
+		<setting name="Frame200">520,520,700,72,0</setting>
+		<setting name="Frame201">490,490,715,91,0</setting>
+		<setting name="Frame202">460,460,730,110,0</setting>
+		<setting name="Frame203">430,430,745,129,0</setting>
+		<setting name="Frame204">400,400,760,148,0</setting>
+		<setting name="Frame205">370,370,775,167,0</setting>
+		<setting name="Frame206">340,340,790,186,0</setting>
+		<setting name="Frame207">310,310,805,205,0</setting>
+		<setting name="Frame208">280,280,820,224,0</setting>
+		<setting name="Frame209">250,250,835,243,0</setting>
+		<setting name="Frame210">220,220,850,262,0</setting>
+		<setting name="Frame211">190,190,865,281,0</setting>
+		<setting name="Frame212">160,160,880,300,0</setting>
+		<setting name="Frame213">130,130,895,319,0</setting>
+		<setting name="Frame214">100,100,910,338,0</setting>
+		<setting name="Frame215">70,70,925,357,0</setting>
+		<setting name="Frame216">40,40,940,376,0</setting>
+		<setting name="Frame217">10,10,955,395,0</setting>
+	</element>
+
+	<element name="Animation2">
+		<setting name="Name">ShowLastBall</setting>
+		<setting name="AnimationType">PropertyAnimation</setting>
+		<setting name="AnimationHolder">PageBackground</setting>
+		<setting name="AnimationTrigger">None</setting>
+		<setting name="TriggerParameters"></setting>
+		<setting name="NextAnimation"></setting>
+		<setting name="AnimationSeq">1</setting>
+		<setting name="UpdateInterval">0.033</setting>
+		<setting name="ImageType">CalledBall</setting>
+		<setting name="ImageFileName"></setting>
+		<setting name="Frame1">360,270,0,0,0,1.0</setting>
+		<setting name="LoopCount">1</setting>
+		<setting name="Reverse">false</setting>
+	</element> 
+
+
+ <!-- Pattern Elements -->
+	<element name="pattern_panel">
+		<setting name="background">pattern_panel_background</setting>
+		<setting name="width">300</setting>
+		<setting name="height">300</setting>
+		<setting name="marginLeft">1530</setting>
+		<setting name="marginTop">625</setting>
+	</element>
+
+	<element name="pattern_75">
+		<setting name="background">pattern_panel_background</setting>
+		<setting name="overlay"></setting>
+		<setting name="blockCardColor">false</setting>
+		<setting name="width">300</setting>
+		<setting name="height">300</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+	</element>
+
+	<element name="pattern_markers_75">
+		<setting name="pattern_on">pattern_on</setting>
+		<setting name="pattern_off">pattern_off</setting>
+		<setting name="marginLeft">60</setting>
+		<setting name="marginTop">60</setting>
+		<setting name="width">29</setting>
+		<setting name="height">29</setting>
+		<setting name="x_start">75</setting>
+		<setting name="y_start">75</setting>
+		<setting name="x_inc">30</setting>
+		<setting name="y_inc">30</setting>
+	</element>
+
+	<element name="pattern_90">
+		<setting name="background">pattern_panel_background</setting>
+		<setting name="width">300</setting>
+		<setting name="height">300</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+	</element>
+
+	<element name="pattern_markers_90">
+		<setting name="pattern_on">pattern_on</setting>
+		<setting name="pattern_off">pattern_off</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+		<setting name="width">20</setting>
+		<setting name="height">24</setting>
+		<setting name="x_start">53</setting>
+		<setting name="y_start">110</setting>
+		<setting name="x_inc">22</setting>
+		<setting name="y_inc">26</setting>
+	</element>
+
+	<element name="pattern_name_text">
+		<setting name="background">pattern_name_background</setting>
+		<setting name="parent">screen</setting>
+		<setting name="textSize">25</setting>
+		<setting name="textColor">#FFFFFF</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textPadding">0,35,0,0</setting>
+		<setting name="textFont">Harry.otf</setting>
+		<setting name="textPrefix"></setting>
+		<setting name="useUppercase">false</setting>
+		<setting name="width">300</setting>
+		<setting name="height">95</setting>
+		<setting name="marginLeft">1532</setting>
+		<setting name="marginTop">900</setting>
+	</element>
+
+
+ <!-- Main Screen Other -->
+	<element name="media_panel">
+		<setting name="media_overlay">media_overlay</setting>
+		<setting name="background">theme_image</setting>
+		<setting name="width">720</setting>
+		<setting name="height">360</setting>
+		<setting name="marginLeft">600</setting>
+		<setting name="marginTop">680</setting>
+	</element>
+
+	<element name="game_number_text">
+		<setting name="background">game_number_background</setting>
+		<setting name="parent">screen</setting>
+		<setting name="textSize">25</setting>
+		<setting name="textColor">#FFFFFF</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textPrefix">Game Number: </setting>
+		<setting name="textPadding">0,35,0,0</setting>
+		<setting name="useUppercase">false</setting>
+		<setting name="width">300</setting>
+		<setting name="height">95</setting>
+		<setting name="marginLeft">100</setting>
+		<setting name="marginTop">980</setting>
+	</element>
+
+	<element name="prize_money_text">
+		<setting name="background">prize_money_background</setting>
+		<setting name="parent">screen</setting>
+		<setting name="textSize">25</setting>
+		<setting name="textColor">#FFFFFF</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textPadding">0,32,0,0</setting>
+		<setting name="textPrefix">Prize </setting>
+		<setting name="width">300</setting>
+		<setting name="height">95</setting>
+		<setting name="marginLeft">1532</setting>
+		<setting name="marginTop">980</setting>
+	</element>
+
+
+ <!-- Giant Information -->
+	<element name="giant_pattern_panel">
+		<setting name="background">giant_pattern_background</setting>
+		<setting name="width">1920</setting>
+		<setting name="height">1080</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+		<setting name="zlevel">1200</setting>
+	</element>
+	
+	<element name="giant_pattern_75">
+		<setting name="background"></setting>
+		<setting name="overlay"></setting>
+		<setting name="width">810</setting>
+		<setting name="height">810</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+	</element>
+
+	<element name="giant_pattern_markers_75">
+		<setting name="pattern_on">pattern_on</setting>
+		<setting name="pattern_off">pattern_off</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+		<setting name="width">164</setting>
+		<setting name="height">137</setting>
+		<setting name="x_start">564</setting>
+		<setting name="y_start">200</setting>
+		<setting name="x_inc">167</setting>
+		<setting name="y_inc">140</setting>
+	</element>
+
+	<element name="giant_pattern_panel_90">
+		<setting name="background">giant_pattern_background_90</setting>
+		<setting name="width">1920</setting>
+		<setting name="height">1080</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+		<setting name="zlevel">1200</setting>
+	</element>
+
+	<element name="giant_pattern_90">
+		<setting name="background"></setting>
+		<setting name="width">400</setting>
+		<setting name="height">140</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+	</element>
+
+
+	<element name="giant_pattern_markers_90">
+		<setting name="pattern_on">pattern_on</setting>
+		<setting name="pattern_off">pattern_off</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+		<setting name="width">139</setting>
+		<setting name="height">179</setting>
+		<setting name="x_start">320</setting>
+		<setting name="y_start">200</setting>
+		<setting name="x_inc">142</setting>
+		<setting name="y_inc">182</setting>
+	</element>
+
+	<element name="giant_pattern_name_text">
+		<setting name="background">pattern_name_background</setting>
+		<setting name="parent">pattern_panel</setting>
+		<setting name="textSize">50</setting>
+		<setting name="textColor">#ffffff</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textFont">Metropolis Light</setting>
+		<setting name="textPadding">0,50,0,0</setting>
+		<setting name="useUppercase">false</setting>
+		<setting name="width">833</setting>
+		<setting name="height">150</setting>
+		<setting name="marginLeft">555</setting>
+		<setting name="marginTop">910</setting>
+	</element>
+
+	<element name="giant_game_number_text">
+		<setting name="background">game_number_background</setting>
+		<setting name="parent">screen</setting>
+		<setting name="textSize">30</setting>
+		<setting name="textColor">#ffffff</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textFont">Calibri</setting>
+		<setting name="textPadding">0,0,0,0</setting>
+		<setting name="width">340</setting>
+		<setting name="height">35</setting>
+		<setting name="marginLeft">70</setting>
+		<setting name="marginTop">684</setting>
+	</element>
+
+	<element name="giant_prize_money_text">
+		<setting name="background">prize_money_background</setting>
+		<setting name="parent">screen</setting>
+		<setting name="textSize">45</setting>
+		<setting name="textColor">#ffffff</setting>
+		<setting name="textStyle">bold</setting>
+		<setting name="textFont">Calibri</setting>
+		<setting name="textPadding">0,4,0,0</setting>
+		<setting name="width">340</setting>
+		<setting name="height">50</setting>
+		<setting name="marginLeft">70</setting>
+		<setting name="marginTop">875</setting>
+	</element>
+
+
+ <!-- 75 Ball Verify Card Page Elements -->
+	<element name="verify">
+		<setting name="background">verify_page_background</setting>
+	</element>
+
+	<element name="verify_card">
+		<setting name="background_bingo">verify_card_bingo</setting>
+		<setting name="background_nobingo">verify_card_nobingo</setting>
+		<setting name="background_set">verify_card_set</setting>
+		<setting name="width">1920</setting>
+		<setting name="height">1080</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">0</setting>
+	</element>
+
+	<element name="verify_card_cells">
+		<setting name="width">164</setting>
+		<setting name="height">137</setting>
+		<setting name="x_start">564</setting>
+		<setting name="y_start">200</setting>
+		<setting name="x_inc">167</setting>
+		<setting name="y_inc">140</setting>
+		<setting name="grid_type">open</setting>
+		<setting name="grid_line_thickness">0</setting>
+		<setting name="grid_line_color">#015C66</setting>
+		<setting name="grid_x_start">295</setting>
+		<setting name="grid_y_start">286</setting>
+		<setting name="grid_x_inc">120</setting>
+		<setting name="grid_y_inc">120</setting>
+		<setting name="cell_background_normal">cell_background_normal</setting>
+		<setting name="cell_background_lastnumber">cell_background_lastnumber</setting>
+		<setting name="cell_background_freespace">cell_background_normal</setting>
+		<setting name="cell_number_normal_font">calibri</setting>
+		<setting name="cell_number_normal_color">#ffffff</setting>
+		<setting name="cell_number_normal_size">30</setting>
+		<setting name="cell_number_normal_style">bold</setting>
+		<setting name="cell_number_lastnumber_font">calibri</setting>
+		<setting name="cell_number_lastnumber_color">#ffffff</setting>
+		<setting name="cell_number_lastnumber_size">30</setting>
+		<setting name="cell_number_lastnumber_style">bold</setting>
+		<setting name="cell_free_space">free_space_nobingo</setting>
+		<setting name="cell_free_space_bingo">free_space_bingo</setting>
+		<setting name="uncalled_cells">verify_uncalled</setting>
+		<setting name="called_cells">verify_called</setting>
+		<setting name="lastnumber_cells">verify_lastnumbers</setting>
+	</element>
+
+	<element name="verify_card_card_number">
+		<setting name="width">400</setting>
+		<setting name="height">60</setting>
+		<setting name="marginLeft">645</setting>
+		<setting name="marginTop">910</setting>
+		<setting name="font">calibri</setting>
+		<setting name="fontcolor">#FFFFFF</setting>
+		<setting name="fontsize">50</setting>
+		<setting name="fontstyle">normal</setting>
+		<setting name="textPrefix"></setting>
+	</element>
+
+	<element name="verify_card_card_level">
+		<setting name="width">55</setting>
+		<setting name="height">30</setting>
+		<setting name="marginLeft">535</setting>
+		<setting name="marginTop">900</setting>
+		<setting name="font">calibri</setting>
+		<setting name="fontcolor">#FFFFFF</setting>
+		<setting name="fontsize">50</setting>
+		<setting name="fontstyle">normal</setting>
+	</element>
+
+	<element name="verify_card_away">
+		<setting name="width">200</setting>
+		<setting name="height">60</setting>
+		<setting name="marginLeft">1135</setting>
+		<setting name="marginTop">910</setting>
+		<setting name="font">calibri</setting>
+		<setting name="fontcolor">#FFFFFF</setting>
+		<setting name="fontsize">50</setting>
+		<setting name="fontstyle">normal</setting>
+	</element>
+
+
+ <!-- 90 Ball Verify Card Page Elements -->
+	<element name="verify_card_90">
+		<setting name="background_bingo">verify_card_bingo_90</setting>
+		<setting name="background_nobingo">verify_card_nobingo_90</setting>
+		<setting name="background_set">verify_card_set_90</setting>
+		<setting name="width">1920</setting>
+		<setting name="height">1080</setting>
+		<setting name="marginLeft">0</setting>
+		<setting name="marginTop">-100</setting>
+	</element>
+
+	<element name="verify_card_cells_90">
+		<setting name="width">168</setting>
+		<setting name="height">179</setting>
+		<setting name="x_start">190</setting>
+		<setting name="y_start">300</setting>
+		<setting name="x_inc">171</setting>
+		<setting name="y_inc">182</setting>
+		<setting name="grid_type">closed</setting>
+		<setting name="grid_line_thickness">0</setting>
+		<setting name="grid_line_color">#ffffff</setting>
+		<setting name="grid_x_start">364</setting>
+		<setting name="grid_y_start">355</setting>
+		<setting name="grid_x_inc">133</setting>
+		<setting name="grid_y_inc">95</setting>
+		<setting name="cell_background_normal">cell_background_normal</setting>
+		<setting name="cell_background_lastnumber">cell_background_lastnumber</setting>
+		<setting name="cell_background_freespace">cell_background_normal</setting>
+		<setting name="cell_number_normal_font">calibri</setting>
+		<setting name="cell_number_normal_color">#ffffff</setting>
+		<setting name="cell_number_normal_size">30</setting>
+		<setting name="cell_number_normal_style">bold</setting>
+		<setting name="cell_number_lastnumber_font">calibri</setting>
+		<setting name="cell_number_lastnumber_color">#ffffff</setting>
+		<setting name="cell_number_lastnumber_size">30</setting>
+		<setting name="cell_number_lastnumber_style">bold</setting>
+		<setting name="cell_free_space">free_space_nobingo</setting>
+		<setting name="cell_free_space_bingo">free_space_bingo</setting>
+		<setting name="uncalled_cells">verify_uncalled</setting>
+		<setting name="called_cells">verify_called</setting>
+		<setting name="lastnumber_cells">verify_lastnumbers</setting>
+	</element>
+
+	<element name="verify_card_card_number_90">
+		<setting name="width">300</setting>
+		<setting name="height">70</setting>
+		<setting name="marginLeft">700</setting>
+		<setting name="marginTop">850</setting>
+		<setting name="font">calibri</setting>
+		<setting name="fontcolor">#ffffff</setting>
+		<setting name="fontsize">50</setting>
+		<setting name="prefix"></setting>
+	</element>
+
+	<element name="verify_card_card_level_90">
+		<setting name="width">120</setting>
+		<setting name="height">70</setting>
+		<setting name="marginLeft">535</setting>
+		<setting name="marginTop">900</setting>
+		<setting name="font">calibri</setting>
+		<setting name="fontcolor">#5DA996</setting>
+		<setting name="fontsize">60</setting>
+		<setting name="fontstyle">normal</setting>
+	</element>
+
+	<element name="verify_card_away_90">
+		<setting name="width">210</setting>
+		<setting name="height">70</setting>
+		<setting name="marginLeft">1050</setting>
+		<setting name="marginTop">850</setting>
+		<setting name="font">calibri</setting>
+		<setting name="fontcolor">#ffffff</setting>
+		<setting name="fontsize">50</setting>
+		<setting name="fontstyle">normal</setting>
+	</element>
+
+
+</vfb_screen>

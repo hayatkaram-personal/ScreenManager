@@ -23,7 +23,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Background="#2e302f">
                 <TextBlock Text="Image Resize" Foreground="White" FontSize="16" FontWeight="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                <Border Width="27" Height="27" BorderThickness="2" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">
+                <Border Width="27" Height="27" BorderThickness="2" x:Name="bdCross" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" PreviewMouseLeftButtonDown="bdCross_PreviewMouseLeftButtonDown">
                     <TextBlock Text="X" FontFamily="Arial" FontSize="18" Foreground="White" FontWeight="ExtraLight" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" />
                 </Border>
             </Grid>

@@ -53,7 +53,7 @@
 		<setting name="x_inc">107</setting>
 		<setting name="y_inc">109</setting>
 	</element>
-
+	
 	<element name="fb_rowheader_1_75">
 		<setting name="background">fb_rowimage_1</setting>
 		<setting name="width">110</setting>

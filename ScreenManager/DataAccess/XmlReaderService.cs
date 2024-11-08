@@ -5,13 +5,9 @@ namespace ScreenManager.DataAccess
 {
     public class XmlReaderService : IXmlReaderService
     {
-        public ImageInfo XmlParser(string filePath)
+        public ThemeLayout XmlParser(string filePath)
         {
-
             var document = XDocument.Load(filePath);
-
-            var imageInfo = new ImageInfo();
-            imageInfo.ImageDetails = new List<ImageDetails>();
 
             var themeLayout = new ThemeLayout();
 
@@ -30,7 +26,19 @@ namespace ScreenManager.DataAccess
                         Value = settingNode.Value
                     };
 
-                    if (setting.Name == "background")
+                    if(setting.Name == "fb_enabled")
+                    {
+                        element.EnabledSettings.FbEnabled = bool.Parse(setting.Value);
+                    }
+                    else if (setting.Name == "lastball_enabled")
+                    {
+                        element.EnabledSettings.LastballEnabled = bool.Parse(setting.Value);
+                    }
+                    else if(setting.Name == "verify_enabled")
+                    {
+                        element.EnabledSettings.VerifyEnabled = bool.Parse(setting.Value);
+                    }
+                    else if (setting.Name == "background")
                     {
                         element.ImageName = setting.Value;
                         element.ImageSetting.Name = settingNode.Value;
@@ -44,26 +52,14 @@ namespace ScreenManager.DataAccess
                         element.ImageSetting.Height = int.Parse(setting.Value);
                     }
 
-                    element.Settings.Add(setting);                    
+
+                    element.Settings.Add(setting);
                 }
 
                 themeLayout.Elements.Add(element);
             }
 
-            var imageDetailList = themeLayout.Elements.Select(d => d.ImageSetting).ToList()
-                .Where(x => x.Name != null && x.Width > 0).ToList();
-
-            foreach (var imgSetting in imageDetailList)
-            {
-                imageInfo.ImageDetails.Add(new ImageDetails
-                {
-                    Name = imgSetting.Name,
-                    Width = imgSetting.Width,
-                    Height = imgSetting.Height
-                });
-            }
-
-            return imageInfo;
+            return themeLayout;
         }
     }
 

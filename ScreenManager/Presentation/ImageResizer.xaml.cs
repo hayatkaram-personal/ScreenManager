@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.IO;
 using ScreenManager.Business;
+using ScreenManager.Helper;
 
 namespace ScreenManager.Presentation
 {
@@ -23,7 +24,8 @@ namespace ScreenManager.Presentation
     /// </summary>
     public partial class ImageResizer : Window
     {
-        public string SourcePath { get; set; }
+        public string Source{ get; set; }
+        public string Destination{ get; set; }
         public ImageResizer()
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace ScreenManager.Presentation
             if (result == true)
             {
                 txtSource.Text = source.FolderName;
+                Source = txtSource.Text;
             }
         }
 
@@ -47,6 +50,7 @@ namespace ScreenManager.Presentation
             if (result == true)
             {
                 txtDestination.Text = dest.FolderName;
+                Destination = dest.FolderName;
             }      
         }
 
@@ -54,17 +58,20 @@ namespace ScreenManager.Presentation
         {
             var xmlReader = new XmlReaderService();
            // string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "XmlTempPath", "screen_layout.xml");
-            var imgDetails = xmlReader.XmlParser("E:\\Repos\\ScreenManager\\ScreenManager\\XmlTempPath\\screen_layout.xml");
+           // var imgDetails = xmlReader.XmlParser("E:\\Repos\\ScreenManager\\ScreenManager\\XmlTempPath\\screen_layout.xml");
 
             var xmlReaderService = new XmlReaderService();
             var imgResizerService = new ImageResizerService();
             var imgProcessingService = new ImageProcessingService(xmlReaderService, imgResizerService);
 
-            imgProcessingService.ProcessImages(txtSource.Text, txtDestination.Text);
+            imgProcessingService.ProcessImages(Source, Destination);
 
+            Notification.Notify(this, "Resized successfully", NotificationType.Success);
+        }
 
-            //var imgResize = new ImageResizerService();
-           // imgResize.ResizeIamge(txtSource.Text, txtDestination.Text, imgDetails.ImageDetails.Select(d => d.Width).FirstOrDefault(), imgDetails.ImageDetails.Select(d => d.Height).FirstOrDefault());
+        private void bdCross_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
         }
     }
 }

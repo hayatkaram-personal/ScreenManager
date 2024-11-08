@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScreenManager.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace ScreenManager.Core
 {
     public interface IXmlReaderService
     {
-        ImageInfo XmlParser(string filePath);
+        ThemeLayout XmlParser(string filePath);
     }
 }

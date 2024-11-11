@@ -10,12 +10,24 @@
     <Compile Update="Presentation\ImageResizer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Presentation\Loading.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Presentation\ImageResizer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Presentation\Loading.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\TextboxStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

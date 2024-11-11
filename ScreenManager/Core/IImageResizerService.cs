@@ -8,6 +8,6 @@ namespace ScreenManager.Core
 {
     public interface IImageResizerService
     {
-        void ResizeIamge(string srcImgPath,string destImgPath, int width, int height);
+         Task ResizeIamge(string srcImgPath,string destImgPath, int width, int height);
     }
 }

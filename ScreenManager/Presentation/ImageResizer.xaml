@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScreenManager.Presentation"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="ImageResizer" Height="450" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="ImageResizer" Height="430" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ScreenManager;component/Resources/TextboxStyle.xaml"/>
+                <ResourceDictionary Source="/ScreenManager;component/Resources/ButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Border BorderThickness="2" BorderBrush="#2e302f">
         <Grid>
             <Grid.RowDefinitions>
@@ -13,9 +22,14 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="50"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition Height="40*"/>
+                <RowDefinition Height="2"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15"/>
@@ -27,15 +41,28 @@
                     <TextBlock Text="X" FontFamily="Arial" FontSize="18" Foreground="White" FontWeight="ExtraLight" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" />
                 </Border>
             </Grid>
-            
-            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtSource" Width="350" Height="35" HorizontalAlignment="Left"/>
-            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Source" Name="btnSource" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right" Background="White" BorderBrush="#2e302f" Margin="0,0,5,0" Click="btnSource_Click" />
+            <!--<TextBlock Grid.Row="2" Grid.Column="1" Text="Please select source*" FontFamily="arial" FontSize="12" Foreground="Red"/>-->
 
-            <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtDestination" Width="350" Height="35" HorizontalAlignment="Left"/>
-            <Button Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="2" Content="Destination" Name="btnDestination" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right" Background="White" BorderBrush="#2e302f" Margin="0,0,5,0" Click="btnDestination_Click"/>
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtSource" Text="{Binding Path=Source}" Foreground="{Binding Path=ForegroundSource}"  Width="350" Height="35" HorizontalAlignment="Left"/>
+            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Source" Name="btnSource" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"  Margin="0,0,15,0" Click="btnSource_Click" />
 
-            <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Content="Resize" Name="btnResize" Foreground="White" FontSize="15" Height="45" Width="150" HorizontalAlignment="Right" Background="#2e302f" BorderBrush="#2e302f" Margin="0,0,5,0" Click="btnResize_Click"/>
+            <!--<TextBlock Grid.Row="4" Grid.Column="1" Text="Please select destination folder*" FontFamily="arial" FontSize="17" Foreground="Red"/>-->
 
+            <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtDestination" Text="{Binding Path=Destination}" Foreground="{Binding Path=ForegroundDest}" Width="350" Height="35" HorizontalAlignment="Left"/>
+            <Button Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="2" Content="Destination" Name="btnDestination" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"  Margin="0,0,15,0" Click="btnDestination_Click"/>
+
+            <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Content="Resize" Name="btnResize" Foreground="White" FontSize="15" Height="40" Width="150" HorizontalAlignment="Right" Background="#2e302f" BorderBrush="#2e302f" Margin="0,0,15,0" Click="btnResize_Click"/>
+
+            <ProgressBar Grid.Row="8" Grid.Column="1" Height="25" Foreground="#2e302f" Minimum="0" Maximum="{Binding Path=ProgressMaxValue , UpdateSourceTrigger=PropertyChanged}" Value="{Binding Path=ProgressValue}" Margin="0,0,15,0"/>
+            <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding Path=ProgressPercentage, StringFormat={}{0}%}" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+           
+            <TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding Path=ProcessingFile}" FontFamily="arial" FontSize="14" Foreground="Gray" VerticalAlignment="Top"/>
+
+            <GridSplitter Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Background="Gray" Margin="0,0,15,0"/>
+
+            <Button Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" Content="Close" Name="btnClose" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"  Margin="0,0,15,0" Click="btnClose_Click" />
+
+            <!--<Button Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Content="Reset" Name="btnReset" Foreground="White" FontSize="15" Height="35" Width="150" HorizontalAlignment="Center" Background="#2e302f" BorderBrush="#2e302f" Margin="0,0,15,0" Click="btnResize_Click"/>-->
         </Grid>
     </Border>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using ScreenManager.Core;
 using ScreenManager.DataAccess;
+using ScreenManager.Presentation;
 using System.IO;
 
 namespace ScreenManager.Business
@@ -19,14 +20,11 @@ namespace ScreenManager.Business
             _imageResizerService = imageResizerService;
         }
 
-        public void ProcessImages(string source, string destination)
+        public async Task ProcessImages(string source, string destination)
         {
-            var filePath = AppDomain.CurrentDomain.BaseDirectory + "\\XmlTempPath\\screen_layout.xml";
-            var xmlFilePath = Path.Combine(source, "E:\\Repos\\ScreenManager\\ScreenManager\\XmlTempPath\\screen_layout.xml");
+            var xmlFilePath = Directory.GetFiles(source, "screen_layout.xml");
 
-            var themeLayout = _xmlReaderService.XmlParser(xmlFilePath);
-            //var imageInfo = new ImageInfo();
-            //imageInfo.ImageDetails = new List<ImageDetails>();
+            var themeLayout = _xmlReaderService.XmlParser(xmlFilePath[0].ToString());
 
             var imageDetailList = themeLayout.Elements.Select(d => d.ImageSetting).ToList()
     .Where(x => x.Name != null && x.Width > 0).ToList();
@@ -43,8 +41,16 @@ namespace ScreenManager.Business
                 });
             }
 
+            ImageResizer.MainViewModel.ProgressValue = 0;
 
             var files = Directory.GetFiles(source);
+            ImageResizer.MainViewModel.ProgressMaxValue = imgSettingList.Count + files.Length;
+
+            var directories = Directory.GetDirectories(source);
+            foreach (var directory in directories)
+            {
+                ImageResizer.MainViewModel.ProgressMaxValue +=  Directory.GetFiles(directory).Length;
+            }
 
             foreach (var imgDetails in imgSettingList)
             {
@@ -52,7 +58,11 @@ namespace ScreenManager.Business
                 {
                     if (img.Contains(imgDetails.Name))
                     {
-                        _imageResizerService.ResizeIamge(img, destination, imgDetails.Width, imgDetails.Height);
+                        ImageResizer.MainViewModel.ProcessingFile ="Resizing : " + Path.GetFileName(img).ToString();
+                        ImageResizer.MainViewModel.ProgressValue += 1;
+                        ImageResizer.MainViewModel.ProgressPercentage = (int)((ImageResizer.MainViewModel.ProgressValue / (double)ImageResizer.MainViewModel.ProgressMaxValue) * 100);
+                        
+                        await Task.Run(() => _imageResizerService.ResizeIamge(img, destination, imgDetails.Width, imgDetails.Height));
                         break;
                     }
                 }
@@ -67,7 +77,8 @@ namespace ScreenManager.Business
             var lastball = themeLayout.Elements.Where(d => d.Name == _lastballResize).Select(x => x.ImageSetting).FirstOrDefault();
             var verifyCard = themeLayout.Elements.Where(d => d.Name == _verifyResize).Select(x => x.ImageSetting).FirstOrDefault();
 
-            var directories = Directory.GetDirectories(source);
+           
+
             foreach (var directory in directories)
             {
                 var dirFiles = Directory.GetFiles(directory);
@@ -88,7 +99,11 @@ namespace ScreenManager.Business
 
                     foreach (var file in dirFiles)
                     {
-                        _imageResizerService.ResizeIamge(file, destFolder, resizeFb.Width, resizeFb.Height);
+                        ImageResizer.MainViewModel.ProcessingFile ="Resizing : " + Path.GetFileName(file).ToString();
+                        ImageResizer.MainViewModel.ProgressValue += 1;
+                        ImageResizer.MainViewModel.ProgressPercentage = (int)((ImageResizer.MainViewModel.ProgressValue / (double)ImageResizer.MainViewModel.ProgressMaxValue) * 100);
+
+                        await Task.Run(() =>  _imageResizerService.ResizeIamge(file, destFolder, resizeFb.Width, resizeFb.Height));
                     }
                 }
                 else if (enabledSettings.LastballEnabled && (folderName == "balls_calling" || folderName == "balls_calling_90"))
@@ -97,7 +112,11 @@ namespace ScreenManager.Business
                         Directory.CreateDirectory(destFolder);
                     foreach (var file in dirFiles)
                     {
-                        _imageResizerService.ResizeIamge(file, destFolder, lastball.Width, lastball.Height);
+                        ImageResizer.MainViewModel.ProcessingFile ="Resizing : " + Path.GetFileName(file).ToString();
+                        ImageResizer.MainViewModel.ProgressValue += 1;
+                        ImageResizer.MainViewModel.ProgressPercentage = (int)((ImageResizer.MainViewModel.ProgressValue / (double)ImageResizer.MainViewModel.ProgressMaxValue) * 100);
+
+                        await Task.Run(() => _imageResizerService.ResizeIamge(file, destFolder, lastball.Width, lastball.Height));
                     }
                 }
                 else if (enabledSettings.VerifyEnabled && (folderName == "verify_called" || folderName == "verify_uncalled" || folderName == "verify_lastnumbers" ||
@@ -107,10 +126,17 @@ namespace ScreenManager.Business
                         Directory.CreateDirectory(destFolder);
                     foreach (var file in dirFiles)
                     {
-                        _imageResizerService.ResizeIamge(file, destFolder, verifyCard.Width, verifyCard.Height);
+                        ImageResizer.MainViewModel.ProcessingFile ="Resizing : " + Path.GetFileName(file).ToString();
+                        ImageResizer.MainViewModel.ProgressValue += 1;
+                        ImageResizer.MainViewModel.ProgressPercentage = (int)((ImageResizer.MainViewModel.ProgressValue / (double)ImageResizer.MainViewModel.ProgressMaxValue) * 100);
+
+                        await Task.Run(() => _imageResizerService.ResizeIamge(file, destFolder, verifyCard.Width, verifyCard.Height));
                     }
                 }
             }
+            ImageResizer.MainViewModel.ProgressValue = ImageResizer.MainViewModel.ProgressMaxValue;
+            ImageResizer.MainViewModel.ProcessingFile = "Done.";
+            ImageResizer.MainViewModel.ProgressPercentage = 100;
         }
     }
 }

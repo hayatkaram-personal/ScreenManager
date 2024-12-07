@@ -26,76 +26,46 @@ namespace ScreenManager.Presentation
     /// </summary>
     public partial class ImageResizer : Window
     {
-        public string Source { get; set; }
-        public string Destination { get; set; }
-        public string processingFile { get; set; }
-        public static MainViewModel MainViewModel { get; set; } = new MainViewModel(Brushes.Black);
+        private MainViewModel mainViewModel = MainViewModel.Instance;
+
         public ImageResizer()
         {
             InitializeComponent();
 
-            this.DataContext = MainViewModel;
+            this.DataContext = mainViewModel;
         }
 
+        /// <summary>
+        /// Use to load source folder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSource_Click(object sender, RoutedEventArgs e)
         {
             var source = new OpenFolderDialog();
-            //var source = new OpenFileDialog();
             var result = source.ShowDialog();
             if (result == true)
             {
-                MainViewModel.ForegroundSource = Brushes.Black;
-                MainViewModel.Source = source.FolderName;
-                // MainViewModel.ProcessingFile = source.FolderName;
-                Source = source.FolderName;
+                mainViewModel.ForegroundSource = Brushes.Black;
+                mainViewModel.Source = source.FolderName;
             }
         }
 
+        /// <summary>
+        /// Use to load the destination folder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDestination_Click(object sender, RoutedEventArgs e)
         {
             var dest = new OpenFolderDialog();
             var result = dest.ShowDialog();
             if (result == true)
             {
-                MainViewModel.ForegroundDest = Brushes.Black;
-                MainViewModel.Destination = dest.FolderName;
-                Destination = dest.FolderName;
+                mainViewModel.ForegroundDest = Brushes.Black;
+                mainViewModel.Destination = dest.FolderName;
             }
-        }
-
-        private async void btnResize_Click(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(MainViewModel.Source) || MainViewModel.Source == "Please select source folder*")
-            {
-                MainViewModel.Source = "Please select source folder*";
-                MainViewModel.ForegroundSource = Brushes.Red;
-                return;
-            }
-            else if(string.IsNullOrWhiteSpace(MainViewModel.Destination) || MainViewModel.Destination == "Please select destination folder*")
-            {
-                MainViewModel.Destination = "Please select destination folder*";
-                MainViewModel.ForegroundDest = Brushes.Red;
-                return;
-            }
-
-            btnSource.IsEnabled = false;
-            btnDestination.IsEnabled = false;
-            btnResize.IsEnabled = false;
-
-            var xmlReader = new XmlReaderService();
-
-            var xmlReaderService = new XmlReaderService();
-            var imgResizerService = new ImageResizerService();
-            var imgProcessingService = new ImageProcessingService(xmlReaderService, imgResizerService);
-
-            await imgProcessingService.ProcessImages(Source, Destination);
-            // loader.Close();
-            Notification.Notify(this, "Resized successfully", NotificationType.Success);
-
-            btnSource.IsEnabled = true;
-            btnDestination.IsEnabled = true;
-            btnResize.IsEnabled = true;
-        }
+        }        
 
         private void bdCross_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

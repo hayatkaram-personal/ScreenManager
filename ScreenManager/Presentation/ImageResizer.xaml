@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ScreenManager.Presentation"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="ImageResizer" Height="430" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+        Title="ImageResizer" Height="458" Width="600" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,48 +19,89 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="0"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="10"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="2"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="15"/>
                 <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="15"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Background="#2e302f">
+
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Background="#2e302f">
                 <TextBlock Text="Image Resize" Foreground="White" FontSize="16" FontWeight="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 <Border Width="27" Height="27" BorderThickness="2" x:Name="bdCross" BorderBrush="White" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" PreviewMouseLeftButtonDown="bdCross_PreviewMouseLeftButtonDown">
                     <TextBlock Text="X" FontFamily="Arial" FontSize="18" Foreground="White" FontWeight="ExtraLight" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand" />
                 </Border>
             </Grid>
             <!--<TextBlock Grid.Row="2" Grid.Column="1" Text="Please select source*" FontFamily="arial" FontSize="12" Foreground="Red"/>-->
+            <Image Grid.Row="1" Grid.Column="1"  Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality" Width="150" Height="60" Margin="0,5,0,0" Source="/Images/Bingo innovation.jpeg" >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="imageRotate" />
+                </Image.RenderTransform>
+                <Image.RenderTransformOrigin>0.5,0.5</Image.RenderTransformOrigin>
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <!-- Trigger for mouse over -->
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                        Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" 
+                        To="360" 
+                        Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation 
+                        Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" 
+                        To="0" 
+                        Duration="0:0:0.5" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
 
-            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtSource" Text="{Binding Path=Source}" Foreground="{Binding Path=ForegroundSource}"  Width="350" Height="35" HorizontalAlignment="Left"/>
-            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Source" Name="btnSource" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"  Margin="0,0,15,0" Click="btnSource_Click" />
+            <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtSource" Text="{Binding Path=Source}" Foreground="{Binding Path=ForegroundSource}"  Width="370" Height="35" HorizontalAlignment="Right"/>
+            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Source" Name="btnSource" FontSize="15" Height="35" Width="150" HorizontalAlignment="Left"  IsEnabled="{Binding Path=IsEnabled}" Click="btnSource_Click" />
 
             <!--<TextBlock Grid.Row="4" Grid.Column="1" Text="Please select destination folder*" FontFamily="arial" FontSize="17" Foreground="Red"/>-->
 
-            <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtDestination" Text="{Binding Path=Destination}" Foreground="{Binding Path=ForegroundDest}" Width="350" Height="35" HorizontalAlignment="Left"/>
-            <Button Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="2" Content="Destination" Name="btnDestination" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"  Margin="0,0,15,0" Click="btnDestination_Click"/>
+            <TextBox Grid.Row="5" Grid.Column="1" x:Name="txtDestination" Text="{Binding Path=Destination}" Foreground="{Binding Path=ForegroundDest}" Width="370" Height="35" HorizontalAlignment="Right"/>
+            <Button Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="2" Content="Destination" Name="btnDestination" FontSize="15" Height="35" Width="150" HorizontalAlignment="Left"  IsEnabled="{Binding Path=IsEnabled}" Click="btnDestination_Click"/>
 
-            <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Content="Resize" Name="btnResize" Foreground="White" FontSize="15" Height="40" Width="150" HorizontalAlignment="Right" Background="#2e302f" BorderBrush="#2e302f" Margin="0,0,15,0" Click="btnResize_Click"/>
+            <Button Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" Content="Resize" Name="btnResize" Foreground="White" FontSize="15" Height="40" Width="150" HorizontalAlignment="Right" Background="#2e302f" BorderBrush="#2e302f" IsEnabled="{Binding Path=IsEnabled}" Command="{Binding ResizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 
-            <ProgressBar Grid.Row="8" Grid.Column="1" Height="25" Foreground="#2e302f" Minimum="0" Maximum="{Binding Path=ProgressMaxValue , UpdateSourceTrigger=PropertyChanged}" Value="{Binding Path=ProgressValue}" Margin="0,0,15,0"/>
-            <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding Path=ProgressPercentage, StringFormat={}{0}%}" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-           
-            <TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding Path=ProcessingFile}" FontFamily="arial" FontSize="14" Foreground="Gray" VerticalAlignment="Top"/>
+            <ProgressBar Grid.Row="8" Grid.Column="1" Height="25" Foreground="#2e302f" Minimum="0" Maximum="{Binding Path=ProgressMaxValueMainProgressbar, UpdateSourceTrigger=PropertyChanged}" Value="{Binding Path=ProgressValueMainProgressbar}" />
+            <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding Path=ProgressPercentageMainProgressBar, StringFormat={}{0}%}" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding Path=ProcessingInfo}" FontFamily="arial" FontSize="14" Foreground="Gray" VerticalAlignment="Top"/>
 
-            <GridSplitter Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Background="Gray" Margin="0,0,15,0"/>
+            <ProgressBar Grid.Row="9" Grid.Column="1" Height="25" Foreground="#2e302f" Minimum="0" Maximum="{Binding Path=ProgressMaxValue , UpdateSourceTrigger=PropertyChanged}" Value="{Binding Path=ProgressValue}" />
+            <TextBlock Grid.Row="9" Grid.Column="1" Text="{Binding Path=ProgressPercentage, StringFormat={}{0}%}" Foreground="White" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="10" Grid.Column="1" Text="{Binding Path=ProcessingFile}" FontFamily="arial" FontSize="14" Foreground="Gray" VerticalAlignment="Top" Margin="0,0,0,5"/>
 
-            <Button Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" Content="Close" Name="btnClose" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"  Margin="0,0,15,0" Click="btnClose_Click" />
+            <GridSplitter Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Background="Gray" Margin="0,0,15,0" />
+
+            <Button Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="1" Content="Close" Name="btnClose" FontSize="15" Height="35" Width="150" HorizontalAlignment="Right"   Click="btnClose_Click" />
 
             <!--<Button Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Content="Reset" Name="btnReset" Foreground="White" FontSize="15" Height="35" Width="150" HorizontalAlignment="Center" Background="#2e302f" BorderBrush="#2e302f" Margin="0,0,15,0" Click="btnResize_Click"/>-->
         </Grid>

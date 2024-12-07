@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Bingo innovation.jpeg" />
     <None Remove="Images\loading.gif" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.10" />
     <PackageReference Include="ToastNotifications" Version="2.5.1" />
     <PackageReference Include="ToastNotifications.Messages" Version="2.5.1" />
@@ -21,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Bingo innovation.jpeg" />
     <Resource Include="Images\loading.gif" />
   </ItemGroup>
 

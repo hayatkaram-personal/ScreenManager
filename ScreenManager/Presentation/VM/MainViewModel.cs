@@ -95,42 +95,49 @@ namespace ScreenManager.Presentation.VM
         [RelayCommand]
         public async void Resize(object obj)
         {
-            if (string.IsNullOrWhiteSpace(Source) || Source == "Please select source folder*")
+            try
             {
-                Source = "Please select source folder*";
-                ForegroundSource = Brushes.Red;
-                return;
+                if (string.IsNullOrWhiteSpace(Source) || Source == "Please select source folder*")
+                {
+                    Source = "Please select source folder*";
+                    ForegroundSource = Brushes.Red;
+                    return;
+                }
+                else if (string.IsNullOrWhiteSpace(Destination))
+                {
+                    Destination = Source + "\\Destination";
+                    if (Directory.Exists(Destination))
+                        Directory.Delete(Destination, true);
+                    Directory.CreateDirectory(Destination);
+                }
+
+                IsEnabled = false; ;
+
+                var xmlReader = new XmlReaderService();
+
+                var xmlReaderService = new XmlReaderService();
+                var imgResizerService = new ImageResizerService();
+                var imgProcessingService = new ImageProcessingService(xmlReaderService, imgResizerService);
+
+                //Send image for resizing
+                var result = await imgProcessingService.ProcessImages(Source, Destination);
+                if (result == false)
+                {
+                    if (obj is Window window)
+                        Notification.Notify(window, "Xml file not found", NotificationType.Error);
+                }
+                else
+                {
+                    if (obj is Window window)
+                        Notification.Notify(window, "Resized successfully", NotificationType.Success);
+                }
+
+                IsEnabled = true;
             }
-            else if (string.IsNullOrWhiteSpace(Destination))
+            catch (Exception ex)
             {
-                Destination = Source + "\\Destination";
-                if (Directory.Exists(Destination))
-                    Directory.Delete(Destination, true);
-                Directory.CreateDirectory(Destination);
+                Logs.Logs.LogError(ex);
             }
-
-            IsEnabled = false; ;
-
-            var xmlReader = new XmlReaderService();
-
-            var xmlReaderService = new XmlReaderService();
-            var imgResizerService = new ImageResizerService();
-            var imgProcessingService = new ImageProcessingService(xmlReaderService, imgResizerService);
-
-            //Send image for resizing
-            var result = await imgProcessingService.ProcessImages(Source, Destination);
-            if (result == false)
-            {
-                if (obj is Window window)
-                    Notification.Notify(window, "Xml file not found", NotificationType.Error);
-            }
-            else
-            {
-                if (obj is Window window)
-                    Notification.Notify(window, "Resized successfully", NotificationType.Success);
-            }
-
-            IsEnabled = true;
         }
     }
 }

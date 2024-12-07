@@ -18,6 +18,9 @@ namespace ScreenManager.Services
         /// <exception cref="FileNotFoundException"></exception>
         public async Task ResizeIamge(string srcImgPath, string destImgPath, int width, int height)
         {
+            try
+            {
+            
             if (!File.Exists(srcImgPath))
                 throw new FileNotFoundException("Image file not found.");
             var tempPath = destImgPath + "\\TempFolder"; //Path.Combine(destImgPath + ");
@@ -42,30 +45,20 @@ namespace ScreenManager.Services
                     resizedImage.Save(outputPath);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Logs.Logs.LogError(ex);
             }
             finally
             {
                 if (Directory.Exists(destImgPath + "\\TempFolder"))
                     Directory.Delete(destImgPath + "\\TempFolder", true);
             }
-
-            //File.Copy(srcImgPath, tempPath, true);
-
-            ////var size = new Size(width, height);
-            //using (var image = Image.FromFile(tempPath))
-            //{
-            //    using (var resizedImage = new Bitmap(image, size))
-            //    {
-            //        var outputPath = Path.Combine(destImgPath, Path.GetFileName(srcImgPath));
-            //        resizedImage.Save(outputPath);
-
-            //    }
-            //}
-            //Directory.Delete(destImgPath + "\\TempFolder", true);
+            }
+            catch (Exception ex)
+            {
+                Logs.Logs.LogError(ex);
+            }
 
         }
         public async Task ReSizeRemainingImages(string src, string dest, int width, int height)
@@ -82,10 +75,9 @@ namespace ScreenManager.Services
                     await image.SaveAsync(outputPath);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Logs.Logs.LogError(ex);
             }
         }
     }

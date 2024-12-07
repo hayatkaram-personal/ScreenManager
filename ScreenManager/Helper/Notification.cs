@@ -8,6 +8,12 @@ namespace ScreenManager.Helper
 {
     public static class Notification
     {
+        /// <summary>
+        /// Use to send notification
+        /// </summary>
+        /// <param name="window"></param>
+        /// <param name="msg"></param>
+        /// <param name="type"></param>
         public static void Notify(Window window, string msg, NotificationType type)
         {
             var notifier = new Notifier(cfg =>

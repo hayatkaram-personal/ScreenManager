@@ -5,6 +5,11 @@ namespace ScreenManager.DataAccess
 {
     public class XmlReaderService : IXmlReaderService
     {
+        /// <summary>
+        /// This function is used to read xml file
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public ThemeLayout XmlParser(string filePath)
         {
             var document = XDocument.Load(filePath);
@@ -26,7 +31,13 @@ namespace ScreenManager.DataAccess
                         Value = settingNode.Value
                     };
 
-                    if(setting.Name == "fb_enabled")
+                    if (setting.Name == "resolution")
+                    {
+                        var res = setting.Value.Split('x');
+                        element.ImageSetting.Width = int.Parse(res[0]);
+                        element.ImageSetting.Height = int.Parse(res[1]);
+                    }
+                    else if (setting.Name == "fb_enabled")
                     {
                         element.EnabledSettings.FbEnabled = bool.Parse(setting.Value);
                     }
@@ -34,7 +45,7 @@ namespace ScreenManager.DataAccess
                     {
                         element.EnabledSettings.LastballEnabled = bool.Parse(setting.Value);
                     }
-                    else if(setting.Name == "verify_enabled")
+                    else if (setting.Name == "verify_enabled")
                     {
                         element.EnabledSettings.VerifyEnabled = bool.Parse(setting.Value);
                     }
